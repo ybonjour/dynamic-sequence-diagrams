@@ -13,7 +13,6 @@ import static java.util.Arrays.asList;
 public class SequenceDiagramOutput implements CallGraphOutput {
 
     private final Path outputFilePath;
-    private final CallGraphPrinter printer = new CallGraphPrinter();
 
     public SequenceDiagramOutput(String outputFilePath) throws IOException {
         this.outputFilePath = Paths.get(outputFilePath);
@@ -23,14 +22,12 @@ public class SequenceDiagramOutput implements CallGraphOutput {
 
     @Override
     public void call(MethodInvocation from, MethodInvocation to) {
-        printer.call(from, to);
         String output = from.getObjectOrClassName() + "->+" + to.getObjectOrClassName() + ": " + to.getMethodWithArguments();
         writeToFile(output);
     }
 
     @Override
     public void resultCall(MethodInvocation from, MethodInvocation to) {
-        printer.call(from, to);
         String output = from.getObjectOrClassName() + "-->-" + to.getObjectOrClassName() + ": " + from.getResultType();
         writeToFile(output);
     }
