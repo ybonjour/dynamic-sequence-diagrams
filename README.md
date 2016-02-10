@@ -1,6 +1,9 @@
 # dynamic-sequence-diagrams
 Creates a sequence diagram based on a program execution
 
+*Warning: This is just a prototype. It's purpose is to try out Javas' instrumentation capabilities and javaassist. It therefore does not have any automated tests and is not supposed to be stable.*
+
+
 # Build
 Download the source and create the jar using gradle:
 
