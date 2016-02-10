@@ -35,7 +35,7 @@ public class SequenceDiagramOutput implements CallGraphOutput {
         writeToFile(output);
     }
 
-    private void writeToFile(String output) {
+    private synchronized void writeToFile(String output) {
         try {
             Files.write(outputFilePath, asList(output), APPEND);
         } catch (IOException e) {
